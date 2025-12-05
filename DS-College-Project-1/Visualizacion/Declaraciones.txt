@@ -1,0 +1,10 @@
+este apartado es para mencionar algunos aspectos de mi codigo:
+
+el ultimo apartado de regresion lineal fue principalmente generado por chat gpt y modificado por mi
+
+Algunos juegos fueron insertados manualmente al dataframe para ver el comportamiento de este
+estos juegos son (PEAK, Hollow Knight: Silksong, schedule I, ARC Raiders, Clair Obscure: Expedition 33)
+la razon principal es que estos juegos son de los mas influyentes del año, y entran facilmente en el top 10% de 
+rango Historico,
+
+el codigo carece de anotaciones que explique como funciona

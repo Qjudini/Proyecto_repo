@@ -1,0 +1,29 @@
+Funcionamiento de las funciones:
+
+obtener_appid(juego) #recibe el nombre de un juego y retorna el appid del juego (usa un url externo a la pagina de steam, por lo que puede ser que no este actualizado con juegos actuales)
+
+obtener_appids(lista_juegos) #Recibe una lista de juegos y llama obtener_appid por cada juego dentro de la lista
+retorna un diccionaro
+
+def fetch_review(appid): #recibe una appid y retorna un diccionario con los valores
+appid, review_score, review_score_desc, total_reviews
+
+def fetch_appdetails(appid): #recibe una appid y retorna un diccionario con los valores
+appid, name, type, required_age, is_free, developers, price, categories, release_date, genres
+
+def procesar_reviews(df_merged, output_file, batch_size=100, workers=10): #recibe un dataframe, y un archivo csv
+ejecuta sobre varias appid al mismo tiempo y guarda cada 100 en el archivo designado, ademas tiene una barra de progreso
+
+def obtener_appids_multithread(juegos, output_file, batch_size=50, workers=10, func_obtener_appid=None): #recibe lista de juegos, archivo y funcion
+ ejecuta la funcion obtener_appid en multiples juegos al mismo, guarda cada 50 y tambien tiene barra de progreso
+
+def descargar_detalles_steam(df_merged, output_file, batch_size=100, max_workers=2): # recibe df, archivo
+ejecuta fetch_appdetails sobre 2 appid diferentes al mismo tiempo (CUIDADO, ESTA FUNCION PUEDE DAR RESULTADOS INESTABLES, PUESTO QUE USA LA URL OFICIAL DE STEAM STORE, Y ESTA SE PUEDE CAER, O TE PUEDE PORTEAR A OTRA NACIONALIDAD, DANDO RESULTADO A OBTENER LOS PRECIOS DE ALLA-
+ADEMAS EJECUTAR MULTIPLES WORKERS PUEDE RESULTAR EN UN VETO MOMENTANEO DE LA PAGINA DE STEAM)
+
+def parse_fecha(x): funcion que lee una fecha y le asigna un datetime, puesto que descargar_detalles_steam no tiene normalizado el formato de fecha
+
+def encode_list_column(df, column_name): hace un mapeado sobre la columna que se ejecuta, retorna el dataframe con la nueva columna y el mapeado
+
+def fetch_app_full(appid): ejecuta fetch_review y fetch_appdetails a la vez
+(ESTA FUNCION ESTA DISEÑADA PARA USAR MANUALMENTE, PUESTO QUE REALIZAR MULTIPLES PETICIONES PODRIA TERMINAR EN UN VETO DE LA PAGINA DE STEAM)
